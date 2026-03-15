@@ -2,7 +2,6 @@
     <div class="hp-header-top">
         <div class="uk-container uk-container-center">
             <div class="uk-grid uk-grid-collapse uk-flex-middle">
-                <!-- Logo -->
                 <div class="uk-width-large-1-4 uk-width-1-3">
                     <div class="logo">
                         <a href="/" title="logo">
@@ -12,14 +11,12 @@
                     </div>
                 </div>
 
-                <!-- Menu (Centered) -->
                 <div class="uk-width-large-1-2 uk-visible-large">
                     <ul class="hp-nav-localized uk-flex-center">
                         {!! $menu['main-menu'] ?? '' !!}
                     </ul>
                 </div>
 
-                <!-- Hotline & Mobile -->
                 <div class="uk-width-large-1-4 uk-width-2-3 uk-text-right">
                     <div class="uk-flex uk-flex-middle uk-flex-right">
                         <div class="hp-hotline-wrap uk-visible-large">
@@ -37,20 +34,5 @@
         </div>
     </div>
 </header>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.getElementById('hp-header');
-        const scrollThreshold = 100;
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > scrollThreshold) {
-                header.classList.add('hp-header-sticky');
-            } else {
-                header.classList.remove('hp-header-sticky');
-            }
-        });
-    });
-</script>
 
 @include('frontend.component.sidebar')

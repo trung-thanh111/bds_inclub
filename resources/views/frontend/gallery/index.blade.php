@@ -17,7 +17,7 @@
                         <ul class="uk-breadcrumb uk-flex-center hp-breadcrumb-premium" data-reveal="up">
                             <li><a href="{{ route('home.index') }}">Trang chủ</a></li>
                             <li class="hp-sep"><i class="fa fa-angle-right"></i></li>
-                            <li class="uk-active"><span>{{ $property->title ?? 'Giới thiệu' }}</span></li>
+                            <li class="uk-active"><span>Thư viện ảnh</span></li>
                         </ul>
                     </div>
                 </div>

@@ -63,7 +63,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Centered Play Button -->
                         <div class="hp-collage-play-wrap">
                             <a href="{{ $videoUrl }}" data-fancybox class="hp-btn-play-center">
                                 <i class="fa fa-play"></i>
@@ -72,7 +71,6 @@
                     </div>
                 </div>
 
-                <!-- Right: Content -->
                 <div class="uk-width-large-1-2">
                     <div class="hp-overview-content" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay:500}">
                         <div class="hp-section-label">
@@ -81,9 +79,9 @@
                         <h2 class="hp-section-title">
                             {{ $propTitle }}
                         </h2>
-                        <p class="hp-overview-desc">
+                        <div class="hp-overview-desc">
                             {!! $propDesc !!}
-                        </p>
+                        </div>
 
                         <div class="hp-overview-features">
                             @php
@@ -158,18 +156,15 @@
         </div>
     </section>
 
-    {{-- WHY WITH US STATS SECTION --}}
     <section class="hp-why-stats-section"
         style="background-image: url('{{ $property->image ?? asset('frontend/resources/img/homely/slider/1.webp') }}');">
         <div class="hp-why-stats-overlay"></div>
         <div class="uk-container uk-container-center hp-why-stats-inner">
-            {{-- Left --}}
             <div class="hp-why-stats-left" data-uk-scrollspy="{cls:'uk-animation-slide-left', delay:300}">
                 <div class="hp-section-label" style="color: var(--hp-primary);">◎ TẠI SAO CHỌN CHÚNG TÔI</div>
                 <h2 class="hp-why-stats-heading">Tận Tâm Kiến<br>Tạo Sự Khác Biệt</h2>
             </div>
 
-            {{-- Right: Stats --}}
             <div class="hp-why-stats-right" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay:500}">
                 <div class="hp-why-stat-item">
                     <div class="hp-why-stat-value">{{ $property->area_sqm ?? '120' }}<span>m²</span></div>
@@ -258,7 +253,6 @@
     <section class="hp-section hp-section-dark hp-section-padding" id="hp-popular-areas">
         <div class="uk-container uk-container-center">
             <div class="uk-grid uk-grid-large" data-uk-grid-margin>
-                {{-- Left Side: Title & Info --}}
                 <div class="uk-width-large-1-3" data-uk-scrollspy="{cls:'uk-animation-slide-left', delay:300}">
                     <div class="hp-section-label hp-text-white" style="color: #fff;">TIỆN ÍCH NGOẠI KHU</div>
                     <h2 class="hp-section-title hp-text-white" style="color: #fff;">KHÁM PHÁ XUNG QUANH</h2>
@@ -266,12 +260,11 @@
                         {{ $property->title }} tọa lạc tại vị trí vàng, nơi kết nối hoàn hảo với các tiện ích hiện đại như
                         trường học, bệnh viện, trung tâm thương mại và các nút giao thông trọng điểm.
                     </p>
-                    <a href="/lien-he.html" class="hp-btn hp-btn-primary">
+                    <a href="/lien-he.html" class="hp-btn-primary">
                         LIÊN HỆ NGAY <i class="fa fa-caret-right" style="margin-left: 10px;"></i>
                     </a>
                 </div>
 
-                {{-- Right Side: Slider --}}
                 <div class="uk-width-large-2-3" data-uk-scrollspy="{cls:'uk-animation-fade', delay:500}">
                     <div class="swiper-container hp-areas-swiper">
                         <div class="swiper-wrapper">
@@ -401,18 +394,16 @@
         </div>
     </section>
 
-
-
     <section class="hp-cta-section hp-section-padding" id="hp-contact-cta" data-reveal="fade">
         <div class="uk-container uk-container-center uk-text-center">
-            <div class="hp-section-label uk-flex-center" style="color: #fff">LIÊN HỆ VỚI CHÚNG TÔI</div>
-            <h2 class="hp-cta-title">BẠN ĐANG TÌM KIẾM NGÔI NHÀ MƠ ƯỚC?</h2>
-            <p class="hp-cta-desc">
+            <div class="hp-section-label uk-flex-center" style="color: #fff" data-reveal="fade">LIÊN HỆ VỚI CHÚNG TÔI</div>
+            <h2 class="hp-cta-title" data-reveal="up">BẠN ĐANG TÌM KIẾM NGÔI NHÀ MƠ ƯỚC?</h2>
+            <p class="hp-cta-desc" data-reveal="up">
                 Khám phá những cơ hội bất động sản tốt nhất và tìm thấy tổ ấm lý tưởng của bạn cùng đội ngũ chuyên gia tận
                 tâm.
             </p>
-            <div class="hp-cta-action">
-                <a href="{{ url('lien-he.html') }}" class="hp-btn-white">
+            <div class="hp-cta-action" data-reveal="up">
+                <a href="/lien-he.html" class="hp-btn-white">
                     LIÊN HỆ NGAY
                 </a>
             </div>

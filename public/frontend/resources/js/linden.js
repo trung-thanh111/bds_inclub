@@ -100,15 +100,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Fancybox initialization
+    if (document.querySelector('.hp-gallery-swiper')) {
+        new Swiper('.hp-gallery-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            navigation: {
+                nextEl: '.hp-gallery-next',
+                prevEl: '.hp-gallery-prev',
+            }
+        });
+    }
+
     if (typeof Fancybox !== 'undefined') {
         Fancybox.bind("[data-fancybox]", {});
     }
 
-    // Back to top logic (HP version)
     const hpBackToTop = document.getElementById('hp-back-to-top');
     if (hpBackToTop) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (window.pageYOffset > 300) {
                 hpBackToTop.classList.add('active');
             } else {
@@ -116,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        hpBackToTop.addEventListener('click', function() {
+        hpBackToTop.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -126,13 +136,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // AJAX Form Submission for Visit Request (Premium version)
     const visitForms = document.querySelectorAll('form[action*="visit-request/store"]');
-    visitForms.forEach(function(visitForm) {
-        visitForm.addEventListener('submit', function(e) {
+    visitForms.forEach(function (visitForm) {
+        visitForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
-            
+
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Đang gửi...';
@@ -151,31 +161,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     'X-CSRF-TOKEN': csrfToken
                 }
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    if (typeof toastr !== 'undefined') {
-                        toastr.success(data.message || 'Yêu cầu của bạn đã được gửi thành công!');
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (typeof toastr !== 'undefined') {
+                            toastr.success(data.message || 'Yêu cầu của bạn đã được gửi thành công!');
+                        }
+                        form.reset();
+                    } else {
+                        if (typeof toastr !== 'undefined') {
+                            toastr.error(data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+                        }
                     }
-                    form.reset();
-                } else {
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     if (typeof toastr !== 'undefined') {
-                        toastr.error(data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+                        toastr.error('Không thể kết nối tới máy chủ. Vui lòng thử lại sau.');
                     }
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                if (typeof toastr !== 'undefined') {
-                    toastr.error('Không thể kết nối tới máy chủ. Vui lòng thử lại sau.');
-                }
-            })
-            .finally(() => {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalBtnHtml;
-                }
-            });
+                })
+                .finally(() => {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                    }
+                });
         });
     });
 

@@ -47,13 +47,13 @@
                     <div class="uk-container uk-container-center hp-hero-content uk-text-left">
                         <div class="hp-hero-content-grid">
                             <div class="hp-hero-text-side">
-                                <h1 class="hp-hero-title-main">
+                                <h1 class="hp-hero-title-main" data-reveal="up">
                                     {{ $property->title ?? 'Mua, Bán & Cho Thuê Bất Động Sản Trong Mơ' }}
                                 </h1>
-                                <p class="hp-hero-subtitle-main">
+                                <p class="hp-hero-subtitle-main" data-reveal="up">
                                     {{ $property->description_short ?? 'Khám phá những cơ hội bất động sản tốt nhất và tìm thấy ngôi nhà mơ ước của bạn tại những vị trí đắc địa nhất.' }}
                                 </p>
-                                <div class="hp-hero-btns" style="margin-top: 50px;">
+                                <div class="hp-hero-btns" style="margin-top: 50px;" data-reveal="up">
                                     <div class="uk-flex uk-flex-middle">
                                         <a href="{{ $property->video_tour_url ?? '#' }}" data-fancybox
                                             class="hp-btn-play-orange-v2">
@@ -64,9 +64,9 @@
                                 </div>
                             </div>
 
-                            <div class="hp-hero-form-side">
+                            <div class="hp-hero-form-side" data-reveal="left">
                                 <div class="hp-form-tab-orange">
-                                    LIÊN HỆ XEM CĂN HỘ
+                                    XEM CĂN HỘ
                                 </div>
                                 <div class="hp-form-body">
                                     <form action="{{ route('visit-request.store') }}" method="POST">
@@ -190,9 +190,9 @@
                         <h2 class="hp-section-title">
                             {{ $propTitle }}
                         </h2>
-                        <p class="hp-overview-desc">
+                        <div class="hp-overview-desc">
                             {!! $propDesc !!}
-                        </p>
+                        </div>
 
                         <div class="hp-overview-features">
                             @php
@@ -250,7 +250,7 @@
                         </div>
 
                         <div class="hp-overview-action uk-flex uk-flex-middle">
-                            <a href="#tien-nghi" class="hp-btn-learn-more">
+                            <a href="#hp-popular-areas" class="hp-btn-learn-more">
                                 XEM THÊM <i class="fa fa-arrow-right"></i>
                             </a>
                             <div class="hp-overview-hotline uk-flex uk-flex-middle">
@@ -314,7 +314,7 @@
             </div>
 
             <div class="hp-gallery-slider-wrap" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:500}">
-                <div class="swiper-container hp-gallery-swiper">
+                <div class="swiper hp-gallery-swiper">
                     <div class="swiper-wrapper">
                         @foreach ($imageChunks as $chunk)
                             <div class="swiper-slide hp-gallery-grid-slide">
@@ -441,7 +441,7 @@
 
                 {{-- Right Side: Slider --}}
                 <div class="uk-width-large-2-3" data-uk-scrollspy="{cls:'uk-animation-fade', delay:500}">
-                    <div class="swiper-container hp-areas-swiper">
+                    <div class="swiper hp-areas-swiper">
                         <div class="swiper-wrapper">
                             @if (isset($locationHighlights) && $locationHighlights->isNotEmpty())
                                 @php
@@ -501,8 +501,8 @@
         data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:200}">
         <div class="uk-container uk-container-center" data-uk-scrollspy="{cls:'uk-animation-fade', delay:300}">
             <div class="hp-news-header">
-                <div class="hp-section-label">BLOG CỦA CHÚNG TÔI</div>
-                <h2 class="hp-section-title">Bài viết MỚI NHẤT</h2>
+                <div class="hp-section-label">CẬP NHẬT THỊ TRƯỜNG</div>
+                <h2 class="hp-section-title">BÀI VIẾT MỚI NHẤT</h2>
             </div>
 
             <div class="uk-grid uk-grid-medium" data-uk-grid-margin>

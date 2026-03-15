@@ -206,4 +206,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    const header = document.getElementById('hp-header');
+    if (header) {
+        const scrollThreshold = 100;
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > scrollThreshold) {
+                header.classList.add('hp-header-sticky');
+            } else {
+                header.classList.remove('hp-header-sticky');
+            }
+        }, { passive: true });
+    }
+
 });
